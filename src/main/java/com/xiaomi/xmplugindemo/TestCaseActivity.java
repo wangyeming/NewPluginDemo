@@ -422,6 +422,39 @@ public class TestCaseActivity extends XmPluginBaseActivity {
             }
         });
 
+        addTestCase("本地ping接口", new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                XmPluginHostApi.instance().localPing(mDeviceStat.did, new Callback<Void>() {
+                    @Override
+                    public void onSuccess(Void result) {
+                        Toast.makeText(activity(),"onSuccess",Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(int error, String errorInfo) {
+                        Toast.makeText(activity(),"onFailure",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        addTestCase("local ping", new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                XmPluginHostApi.instance().localPing(mDeviceStat.did, new Callback<Void>() {
+                    @Override
+                    public void onSuccess(Void result) {
+                        Log.d("localping","onSuccess");
+                    }
+
+                    @Override
+                    public void onFailure(int error, String errorInfo) {
+                        Log.d("localping","onFailure");
+                    }
+                });
+            }
+        });
 
     }
 
